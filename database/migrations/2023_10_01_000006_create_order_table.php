@@ -15,6 +15,7 @@ class CreateOrderTable extends Migration
             $table->date('order_date');
             $table->date('start_date')->nullable();
             $table->integer('months')->nullable();
+            $table->integer('percent')->nullable();
             $table->string('comment')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
