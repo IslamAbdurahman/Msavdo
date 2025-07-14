@@ -3,36 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kirim;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class KirimController extends Controller
 {
     public function index()
     {
-        return Kirim::with('items')->get();
+        $kirims = Kirim::with('items')->get();
+        return Inertia::render('Kirims/Index', ['kirims' => $kirims]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('Kirims/Create');
     }
 
     public function store(Request $request)
     {
         $kirim = Kirim::create($request->all());
-        return response()->json($kirim, 201);
+        return redirect()->route('kirims.index');
     }
 
     public function show($id)
     {
-        return Kirim::with('items')->findOrFail($id);
+        $kirim = Kirim::with('items')->findOrFail($id);
+        return Inertia::render('Kirims/Show', ['kirim' => $kirim]);
+    }
+
+    public function edit($id)
+    {
+        $kirim = Kirim::with('items')->findOrFail($id);
+        return Inertia::render('Kirims/Edit', ['kirim' => $kirim]);
     }
 
     public function update(Request $request, $id)
     {
         $kirim = Kirim::findOrFail($id);
         $kirim->update($request->all());
-        return response()->json($kirim, 200);
+        return redirect()->route('kirims.index');
     }
 
     public function destroy($id)
     {
         Kirim::destroy($id);
-        return response()->json(null, 204);
+        return redirect()->route('kirims.index');
     }
 }

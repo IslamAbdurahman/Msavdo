@@ -3,36 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\Models\KirimItem;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class KirimItemController extends Controller
 {
     public function index()
     {
-        return KirimItem::with(['kirim', 'product'])->get();
+        $kirimItems = KirimItem::with(['kirim', 'product'])->get();
+        return Inertia::render('KirimItems/Index', ['kirimItems' => $kirimItems]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('KirimItems/Create');
     }
 
     public function store(Request $request)
     {
         $kirimItem = KirimItem::create($request->all());
-        return response()->json($kirimItem, 201);
+        return redirect()->route('kirim-items.index');
     }
 
     public function show($id)
     {
-        return KirimItem::with(['kirim', 'product'])->findOrFail($id);
+        $kirimItem = KirimItem::with(['kirim', 'product'])->findOrFail($id);
+        return Inertia::render('KirimItems/Show', ['kirimItem' => $kirimItem]);
+    }
+
+    public function edit($id)
+    {
+        $kirimItem = KirimItem::with(['kirim', 'product'])->findOrFail($id);
+        return Inertia::render('KirimItems/Edit', ['kirimItem' => $kirimItem]);
     }
 
     public function update(Request $request, $id)
     {
         $kirimItem = KirimItem::findOrFail($id);
         $kirimItem->update($request->all());
-        return response()->json($kirimItem, 200);
+        return redirect()->route('kirim-items.index');
     }
 
     public function destroy($id)
     {
         KirimItem::destroy($id);
-        return response()->json(null, 204);
+        return redirect()->route('kirim-items.index');
     }
 }
