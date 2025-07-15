@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Variant extends Model
+class ArrivalItemFile extends Model
 {
-    use HasFactory;
-
-    protected $fillable = ['arrival_item_id', 'amount'];
+    protected $fillable = [
+        'arrival_item_id',
+        'file'
+    ];
 
     public function arrivalItem()
     {

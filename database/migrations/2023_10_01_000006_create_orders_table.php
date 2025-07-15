@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderTable extends Migration
+class CreateOrdersTable extends Migration
 {
     public function up()
     {
@@ -14,8 +14,8 @@ class CreateOrderTable extends Migration
             $table->bigInteger('client_id');
             $table->date('order_date');
             $table->date('start_date')->nullable();
-            $table->integer('months')->nullable();
-            $table->integer('percent')->nullable();
+            $table->integer('months')->default(0);
+            $table->integer('percent')->default(0);
             $table->string('comment')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
@@ -24,6 +24,6 @@ class CreateOrderTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('order');
+        Schema::dropIfExists('orders');
     }
 }

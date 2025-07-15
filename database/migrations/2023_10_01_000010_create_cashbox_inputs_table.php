@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCashboxInputTable extends Migration
+class CreateCashboxInputsTable extends Migration
 {
     public function up()
     {
-        Schema::create('cashbox_input', function (Blueprint $table) {
+        Schema::create('cashbox_inputs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('cashbox_id')->constrained('cashboxes');
             $table->bigInteger('user_id');
@@ -23,6 +23,6 @@ class CreateCashboxInputTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('cashbox_input');
+        Schema::dropIfExists('cashbox_inputs');
     }
 }

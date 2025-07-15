@@ -10,10 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('month_percents', function (Blueprint $table) {
+        Schema::create('arrival_item_files', function (Blueprint $table) {
             $table->id();
-            $table->integer('months')->default(0);
-            $table->integer('percent')->default(0);
+            $table->foreignId('arrival_item_id')->constrained('arrival_items');
+            $table->string('file');
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('month_percents');
+        Schema::dropIfExists('arrival_item_files');
     }
 };

@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KirimItem extends Model
+class ArrivalItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['kirim_id', 'product_id', 'amount', 'price', 'sel_price', 'barcode', 'info_json', 'info'];
+    protected $fillable = ['arrival_id', 'product_id', 'amount', 'price', 'sel_price', 'barcode', 'info_json', 'info'];
 
-    public function kirim()
+    public function arrival()
     {
-        return $this->belongsTo(Kirim::class);
+        return $this->belongsTo(Arrival::class);
     }
 
     public function product()

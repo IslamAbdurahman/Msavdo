@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kirim extends Model
+class Arrival extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,6 @@ class Kirim extends Model
 
     public function items()
     {
-        return $this->hasMany(KirimItem::class);
+        return $this->hasMany(ArrivalItem::class);
     }
 }
