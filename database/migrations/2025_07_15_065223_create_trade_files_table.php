@@ -10,9 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('order_files', function (Blueprint $table) {
+        Schema::create('trade_files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained('orders');
+            $table->foreignId('trade_id')->constrained('trades');
             $table->string('file');
             $table->timestamps();
         });
@@ -23,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_files');
+        Schema::dropIfExists('trade_files');
     }
 };

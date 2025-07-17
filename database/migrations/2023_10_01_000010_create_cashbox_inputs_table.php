@@ -14,7 +14,7 @@ class CreateCashboxInputsTable extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('client_id')->nullable()->constrained('users');
             $table->foreignId('graphic_id')->nullable()->constrained('graphics');
-            $table->foreignId('order_id')->nullable()->constrained('orders');
+            $table->foreignId('trade_id')->nullable()->constrained('trades');
             $table->double('amount');
             $table->string('comment')->nullable();
             $table->timestamps();

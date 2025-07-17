@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OrderFile;
+use App\Models\TradeFile;
 use Illuminate\Http\Request;
 
-class OrderFileController extends Controller
+class TradeFileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class OrderFileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(OrderFile $orderFile)
+    public function show(TradeFile $tradeFile)
     {
         //
     }
@@ -42,7 +42,7 @@ class OrderFileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(OrderFile $orderFile)
+    public function edit(TradeFile $tradeFile)
     {
         //
     }
@@ -50,7 +50,7 @@ class OrderFileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, OrderFile $orderFile)
+    public function update(Request $request, TradeFile $tradeFile)
     {
         //
     }
@@ -58,7 +58,7 @@ class OrderFileController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(OrderFile $orderFile)
+    public function destroy(TradeFile $tradeFile)
     {
         //
     }

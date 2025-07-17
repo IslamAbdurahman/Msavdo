@@ -4,14 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderItemsTable extends Migration
+class CreateTradeItemsTable extends Migration
 {
     public function up()
     {
-        Schema::create('order_items', function (Blueprint $table) {
+        Schema::create('trade_items', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->foreignId('order_id')->constrained('orders');
+            $table->foreignId('trade_id')->constrained('trades');
             $table->foreignId('variant_id')->constrained('variants');
             $table->double('amount');
             $table->double('price');
@@ -21,6 +21,6 @@ class CreateOrderItemsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('order_items');
+        Schema::dropIfExists('trade_items');
     }
 }

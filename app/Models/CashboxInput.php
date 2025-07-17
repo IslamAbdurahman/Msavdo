@@ -9,7 +9,7 @@ class CashboxInput extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['cashbox_id', 'user_id', 'client_id', 'graphic_id', 'order_id', 'amount', 'comment'];
+    protected $fillable = ['cashbox_id', 'user_id', 'client_id', 'graphic_id', 'trade_id', 'amount', 'comment'];
 
     public function cashbox()
     {
@@ -21,8 +21,8 @@ class CashboxInput extends Model
         return $this->belongsTo(Graphics::class);
     }
 
-    public function order()
+    public function trade()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Trade::class);
     }
 }

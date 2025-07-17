@@ -9,10 +9,10 @@ class Graphics extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['order_id', 'amount', 'paid_amount', 'discount', 'month'];
+    protected $fillable = ['trade_id', 'amount', 'paid_amount', 'discount', 'month'];
 
-    public function order()
+    public function trade()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Trade::class);
     }
 }

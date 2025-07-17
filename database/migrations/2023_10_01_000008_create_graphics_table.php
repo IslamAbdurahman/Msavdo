@@ -10,7 +10,7 @@ class CreateGraphicsTable extends Migration
     {
         Schema::create('graphics', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained('orders');
+            $table->foreignId('trade_id')->constrained('trades');
             $table->double('amount');
             $table->double('paid_amount')->default(0);
             $table->double('discount')->default(0);

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OrderFile extends Model
+class TradeFile extends Model
 {
     protected $fillable = [
         'order_id',
@@ -13,6 +13,6 @@ class OrderFile extends Model
 
     public function orderItem()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Trade::class);
     }
 }
